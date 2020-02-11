@@ -18,9 +18,10 @@ public class App {
         System.out.println("===");
 
 
-        for (int i = 0; i < 10; i ++) {
-            System.out.println(deq.popFront().x);
-            deq.popBack();
+        for (int i = 0; i < deq.length(); i ++) {
+            R2Point f = deq.popFront();
+            System.out.println(f.x);
+            deq.pushBack(f);
         }
     }
 }
