@@ -13,12 +13,15 @@ public class App {
             System.out.println(r);
             deq.pushFront(new R2Point(r, 1));
         }
-
-        System.out.println(deq.back());
-        System.out.println(deq.front());
+        System.out.println("===");
         System.out.println(deq.length());
-        System.out.println(deq.popBack());
-        System.out.println(deq.popFront());
+        System.out.println("===");
+
+
+        for (int i = 0; i < 10; i ++) {
+            System.out.println(deq.popFront().x);
+            deq.popBack();
+        }
     }
 }
 
@@ -105,7 +108,7 @@ class Queue {
 }
 
 class R2Point {
-    private double x, y;
+    public double x, y;
 
     public R2Point(double x, double y) {
         this.x = x;
