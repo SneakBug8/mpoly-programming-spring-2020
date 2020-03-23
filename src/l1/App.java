@@ -13,16 +13,45 @@ public class App {
             System.out.println(r);
             deq.pushFront(new R2Point(r, 1));
         }
+
         System.out.println("===");
-        System.out.println(deq.length());
-        System.out.println("===");
+        /*for (int i = 0; i < deq.length(); i ++) {
+            R2Point f = deq.popFront();
+            System.out.println(f.x);
+            deq.pushBack(f);
+        }*/
+
+        deq.popFront();
+        deq.popBack();
 
 
-        for (int i = 0; i < deq.length(); i ++) {
+        deq.printHeadToTail();
+
+        System.out.println("===");
+
+        deq.printTailToHead();
+        // 1 choice
+        /*
+        for (int i = 0; i < ssize; i ++) {
+            R2Point f = deq.front();
+            System.out.println(f.x);
+            deq.popFront();
+        }
+
+        for (int i = 0; i < ssize; i ++) {
+            deq.popFront();
+        }
+
+        System.out.println("===");
+
+        // 2 choice
+
+        for (int i = 0; i < ssize; i ++) {
             R2Point f = deq.popFront();
             System.out.println(f.x);
             deq.pushBack(f);
         }
+        */
     }
 }
 
@@ -202,4 +231,18 @@ class Deq {
     public R2Point back() {
         return array[tail];
     }
+
+    public void printHeadToTail(){
+for (int i = head; i != tail + 1; i = forward(i) ) {
+System.out.print(array[i].x + " ");
+}
+System.out.println();
+}
+
+public void printTailToHead(){
+for (int i = tail; i != head - 1; i = backward(i)) {
+System.out.print(array[i].x + " ");
+}
+System.out.println();
+}
 }
