@@ -24,9 +24,10 @@ public class Compf extends Stack {
     }
 
     String symCache = "";
+    String prevOper = "";
 
     private void processSymbol(String c) {
-        System.out.println(c + " | " + symType(c) + " | " + symCache);
+        System.out.println(c + " | " + symType(c) + " | " + symCache + " | " + prevOper);
 
         if (symType(c) == SYM_OTHER) {
             symCache += c;
@@ -34,6 +35,22 @@ public class Compf extends Stack {
         } else if (symCache != "") {
             nextOther(symCache);
             symCache = "";
+        }
+
+        if (symType(c) == SYM_OPER && prevOper == "") {
+            prevOper = c;
+            return;
+        } else if (symType(c) == SYM_OPER && c.equals("-") && prevOper != "") {
+            processSuspendedSymbols(prevOper);
+            push(prevOper);
+            prevOper = "";
+
+            symCache = "-" + symCache;
+            return;
+        } else if (prevOper != "") {
+            processSuspendedSymbols(prevOper);
+            push(prevOper);
+            prevOper = "";
         }
 
         switch (symType(c)) {
@@ -44,10 +61,9 @@ public class Compf extends Stack {
                 processSuspendedSymbols(c);
                 pop();
                 break;
-            case SYM_OPER:
-                processSuspendedSymbols(c);
-                push(c);
-                break;
+            /*
+             * case SYM_OPER: processSuspendedSymbols(c); push(c); break;
+             */
         }
     }
 
@@ -78,7 +94,6 @@ public class Compf extends Stack {
         System.exit(0);
         return 0;
     }
-
 
     protected void nextOper(String c) {
         System.out.print(c);
