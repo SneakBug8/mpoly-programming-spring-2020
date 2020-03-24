@@ -37,14 +37,19 @@ public class Compf extends Stack {
             symCache = "";
         }
 
-        if (symType(c) == SYM_OPER && prevOper == "") {
+        if ((symType(c) == SYM_OPER || symType(c) == SYM_LEFT) && prevOper == "") {
             prevOper = c;
             return;
         } else if (symType(c) == SYM_OPER && c.equals("-") && prevOper != "") {
-            processSuspendedSymbols(prevOper);
-            push(prevOper);
-            prevOper = "";
 
+            if (symType(prevOper) == SYM_LEFT) {
+                push(prevOper);
+            } else {
+                processSuspendedSymbols(prevOper);
+                push(prevOper);
+            }
+
+            prevOper = "";
             symCache = "-" + symCache;
             return;
         } else if (prevOper != "") {
