@@ -1,3 +1,6 @@
+
+package Convex;
+
 //Интерфейс, задающий новый тип - фигуру.
 interface Figure{
     public double perimeter();

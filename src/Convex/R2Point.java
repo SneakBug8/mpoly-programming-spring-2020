@@ -1,4 +1,4 @@
-import java.util.Scanner;
+package Convex;
 
 //Класс, описывающий точку (Point) на плоскости (R2).
 class R2Point{
@@ -10,11 +10,7 @@ class R2Point{
     }
 
     public R2Point() throws Exception{
-        Scanner in = new Scanner(System.in);
-        System.out.print("x -> ");
-        x = in.nextDouble();
-        System.out.print("y -> ");
-        y = in.nextDouble();
+        
     }
 
     public static double dist(R2Point a, R2Point b){

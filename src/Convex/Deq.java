@@ -1,3 +1,5 @@
+package Convex;
+
 //Непрерывная реализация дека.
 class Deq{
     private final static int DEFSIZE = 16;

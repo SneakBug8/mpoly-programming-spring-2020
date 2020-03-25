@@ -1,3 +1,5 @@
+package Convex;
+
 //Класс "Выпуклая оболочка".
 class Convex{
     private Figure fig;

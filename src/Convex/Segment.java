@@ -1,3 +1,6 @@
+package Convex;
+
+
 //Класс "Двуугольник", реализующий интерфейс фигуры.
 class Segment implements Figure{
     private R2Point p, q;

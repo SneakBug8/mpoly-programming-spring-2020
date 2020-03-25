@@ -1,3 +1,6 @@
+
+
+package Convex;
 //Класс "Многоугольник", реализующий интерфейс фигуры.
 class Polygon extends Deq implements Figure{
     private double s, p;

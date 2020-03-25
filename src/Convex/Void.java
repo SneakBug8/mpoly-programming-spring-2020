@@ -1,3 +1,5 @@
+package Convex;
+
 //Класс "Нульугольник", реализующий интерфейс фигуры.
 class Void implements Figure{
     public double perimeter(){

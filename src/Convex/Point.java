@@ -1,3 +1,6 @@
+
+package Convex;
+
 //Класс "Одноугольник", реализующий интерфейс фигуры.
 class Point implements Figure{
     private R2Point p;
