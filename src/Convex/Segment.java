@@ -1,5 +1,6 @@
 package Convex;
 
+import java.awt.*;
 
 //Класс "Двуугольник", реализующий интерфейс фигуры.
 class Segment implements Figure{
@@ -29,5 +30,9 @@ class Segment implements Figure{
             p = r;
 
         return this;
+    }
+
+    public void draw(Graphics g){
+        g.drawLine((int)p.getX(), (int)p.getY(), (int)q.getX(), (int)q.getY());
     }
 }

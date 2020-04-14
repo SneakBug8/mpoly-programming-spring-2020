@@ -1,6 +1,8 @@
-
-
 package Convex;
+
+import java.awt.*;
+import java.awt.geom.Path2D;
+
 //Класс "Многоугольник", реализующий интерфейс фигуры.
 class Polygon extends Deq implements Figure{
     private double s, p;
@@ -63,5 +65,26 @@ class Polygon extends Deq implements Figure{
         }
 
         return this;
+    }
+
+    public void draw(Graphics g){
+        // Create our path
+        Path2D p = new Path2D.Double();
+
+        // Set starting point
+        p.moveTo(front().getX(), front().getY());
+
+        // Add all points to the path
+        for (int i = 0; i < length(); i++) {
+            p.lineTo(front().getX(), front().getY());
+            pushBack(popFront());
+        }
+        p.closePath();
+        Graphics2D graphics2D = (Graphics2D)g;
+
+        // fill the inner with color
+        graphics2D.setColor(Color.red);
+        graphics2D.fill(p);
+        graphics2D.setColor(Color.black);
     }
 }

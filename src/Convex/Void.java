@@ -1,5 +1,7 @@
 package Convex;
 
+import java.awt.*;
+
 //Класс "Нульугольник", реализующий интерфейс фигуры.
 class Void implements Figure{
     public double perimeter(){
@@ -13,4 +15,6 @@ class Void implements Figure{
     public Figure add(R2Point p){
         return new Point(p);
     }
+
+    public void draw(Graphics g){}
 }

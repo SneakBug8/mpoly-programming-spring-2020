@@ -1,5 +1,6 @@
-
 package Convex;
+
+import java.awt.*;
 
 //Класс "Одноугольник", реализующий интерфейс фигуры.
 class Point implements Figure{
@@ -22,5 +23,9 @@ class Point implements Figure{
             return new Segment(p, q);
         else
             return this;
+    }
+
+    public void draw(Graphics g){
+        g.drawOval((int)p.getX(), (int)p.getY(), 1, 1);
     }
 }

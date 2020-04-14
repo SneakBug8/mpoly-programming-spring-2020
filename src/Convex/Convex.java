@@ -1,5 +1,7 @@
 package Convex;
 
+import java.awt.*;
+
 //Класс "Выпуклая оболочка".
 class Convex{
     private Figure fig;
@@ -18,5 +20,9 @@ class Convex{
 
     public double perimeter(){
         return fig.perimeter();
+    }
+
+    public void draw(Graphics g){
+        fig.draw(g);
     }
 }
