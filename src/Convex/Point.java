@@ -26,6 +26,6 @@ class Point implements Figure{
     }
 
     public void draw(Graphics g){
-        g.drawOval((int)p.getX(), (int)p.getY(), 1, 1);
+        g.drawOval((int)p.getX(), (int)-p.getY(), 1, 1);
     }
 }

@@ -9,11 +9,24 @@ public class ConvexWindow extends JFrame {
     public static final int height = 600;
     private Convex convex;
 
+    public static ConvexWindow Global;
+
 
     public ConvexWindow(Convex convex){
+        Global = this;
+
+
         this.setTitle("ConvexWindow");
         this.setSize(width, height);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        Container pane = this.getContentPane();
+        pane.setLayout(new GridLayout(15,15));
+
+        MyButton button = new MyButton();
+
+        pane.add(button);
+
         this.setVisible(true);
 
         this.convex = convex;

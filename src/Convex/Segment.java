@@ -33,6 +33,6 @@ class Segment implements Figure{
     }
 
     public void draw(Graphics g){
-        g.drawLine((int)p.getX(), (int)p.getY(), (int)q.getX(), (int)q.getY());
+        g.drawLine((int)p.getX(), (int)-p.getY(), (int)q.getX(), -(int)q.getY());
     }
 }

@@ -72,11 +72,11 @@ class Polygon extends Deq implements Figure{
         Path2D p = new Path2D.Double();
 
         // Set starting point
-        p.moveTo(front().getX(), front().getY());
+        p.moveTo(front().getX(), -front().getY());
 
         // Add all points to the path
         for (int i = 0; i < length(); i++) {
-            p.lineTo(front().getX(), front().getY());
+            p.lineTo(front().getX(), -front().getY());
             pushBack(popFront());
         }
         p.closePath();
