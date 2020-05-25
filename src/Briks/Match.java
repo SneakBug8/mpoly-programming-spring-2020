@@ -13,9 +13,9 @@ import java.awt.event.ActionListener;
 
 class Match {
 	private Frame _top;
-	private PuckSupply _ps;
-	private BrickPile _bp;
-	private PlayField _pf;
+	public static PuckSupply _ps;
+	public static BrickPile _bp;
+	public static PlayField _pf;
 	private MediaTracker _tracker;
 	public static Image[] _lib;
 	private String _message = "";
@@ -24,13 +24,15 @@ class Match {
 		_top = new Frame("Bricks");
 		_pf = new PlayField(this);
 		_tracker = new MediaTracker(_pf);
-		_lib = new Image[6];
+		_lib = new Image[8];
 		_lib[0] = _pf.getToolkit().getImage("src/Briks/puck.gif");
 		_lib[1] = _pf.getToolkit().getImage("src/Briks/puddle.gif");
 		_lib[2] = _pf.getToolkit().getImage("src/Briks/brick.gif");
 		_lib[3] = _pf.getToolkit().getImage("src/Briks/wallbrick.gif");
 		_lib[4] = _pf.getToolkit().getImage("src/Briks/superbrick.gif");
 		_lib[5] = _pf.getToolkit().getImage("src/Briks/hardbrick.gif");
+		_lib[6] = _pf.getToolkit().getImage("src/Briks/fallingball.gif");
+		_lib[7] = _pf.getToolkit().getImage("src/Briks/bonusbrick.png");
 
 
 		_tracker.addImage(_lib[0], 0);
@@ -39,7 +41,8 @@ class Match {
 		_tracker.addImage(_lib[3], 0);
 		_tracker.addImage(_lib[4], 0);
 		_tracker.addImage(_lib[5], 0);
-
+		_tracker.addImage(_lib[6], 0);
+		_tracker.addImage(_lib[7], 0);
 
 
 		MenuBar mbar = new MenuBar();

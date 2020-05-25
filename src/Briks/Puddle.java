@@ -41,6 +41,10 @@ class Puddle extends MovableSprite implements KeyListener {
 	}
 
 	public void hitBy(Puck p) {
+		if (p.getClass() == FallingBall.class) {
+			p._isDead = true;
+		}
+		
 		if ( p.getDirection() == 90 ) {
 			p.setDirection(270 + alpha);
 		} else {

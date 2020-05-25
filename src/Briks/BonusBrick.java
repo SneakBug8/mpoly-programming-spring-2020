@@ -5,7 +5,7 @@ package Briks;
 import java.awt.Image;
 import java.awt.Rectangle;
 
-class HardBrick extends Brick {
+class BonusBrick extends Brick {
 	/*
 	 * @_hitCount - количество допустимых ударов шайбой
 	 *            кирпич разрушается, как только атрибут
@@ -15,32 +15,18 @@ class HardBrick extends Brick {
 	 * 			  ударе шайбы
 	 */
 	 
-	private int _hitCount = 1;
-	private Image _woundImg;
 
-	public HardBrick(
+	public BonusBrick(
 		PlayField pf,
 		BrickPile bp,
 		Rectangle p,
-		Image img,
-		Image woundImg) {
+		Image img) {
 			super(pf, bp, img, p);
-			_woundImg = woundImg;
 		}
 		
-	/* Oбработка соударения с шайбой. Как только
-	 * значение _hitCount становится равным нулю
-	 * и будет удален с игрового поля
-	 */
-	 
 	public void hitBy(Puck p) {
-		if (_hitCount > 0) {
-			_img = _woundImg;
-			_hitCount--;
-			p.getVelocity().reverseY();
-		} else {
-			super.hitBy(p);
-		}
-		
+        super.hitBy(p);
+        var fallingball = new FallingBall(_pf, Match._ps, Match._lib[6], new Vector2(_pos.x, _pos.y));
+        Match._pf.addSprite(fallingball);
 	}
 }

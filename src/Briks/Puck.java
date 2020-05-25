@@ -9,20 +9,15 @@ import java.awt.Rectangle;
 
 class Puck extends MovableSprite {
 	/*
-	 * @_ps - хранилище шайб, двунаправленая ассоциаця 
+	 * @_ps - хранилище шайб, двунаправленая ассоциаця
 	 */
-	 
+
 	private PuckSupply _ps;
-	
+
 	public Puck(PlayField pf, PuckSupply ps, Image img) {
-		super(
-			pf,
-			img,
-			(new Rectangle(pf.getWidth()/2, pf.getHeight()/2, img.getWidth(pf), img.getHeight(pf))),
-			90,
-			8
-		);
-		
+		super(pf, img, (new Rectangle(pf.getWidth() / 2, pf.getHeight() / 2, img.getWidth(pf), img.getHeight(pf))), 90,
+				6);
+
 		_isMoving = true;
 		_ps = ps;
 	}
@@ -35,8 +30,8 @@ class Puck extends MovableSprite {
 
 		_prevPos = _pos;
 		_pos.translate(_v.getSpeedX(), _v.getSpeedY());
-    
-		/* Oбработка соударения  со стенами, полом и потолком. */
+
+		/* Oбработка соударения со стенами, полом и потолком. */
 		if (_pos.x <= b.x) {
 			_pos.x = b.x;
 			_v.reverseX();
@@ -55,18 +50,20 @@ class Puck extends MovableSprite {
 				_pf.addSprite(_ps.get());
 			}
 		}
-	
+
 		/* Обработка соударения с другими спрайтами */
 		if (collideWith() != null) {
 			_pos = _prevPos;
 			collideInto(collideWith());
 		}
 	}
-	
+
 	public void collideInto(Sprite s) {
-		s.hitBy(this);
+		if (s.getClass() != FallingBall.class) {
+			s.hitBy(this);
+		}
 	}
-	
+
 	public void hitBy(Puck p) {
 		;
 	}
